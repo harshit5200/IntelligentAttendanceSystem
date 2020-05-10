@@ -1,0 +1,125 @@
+{%load static%}
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- <link rel="stylesheet" type="text/css" href="file.css"> -->
+	<link rel="stylesheet" type="text/css" href="{%static 'adduser.css' %}">
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Bree+Serif&display=swap" rel="stylesheet">
+	<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+
+	<title></title>
+</head>
+
+<body style="overflow: hidden;">
+
+	<div class="sidebar">
+		<header>FACE-SHOT</header>
+		<ul>
+			<li><a href="/file1/"><i class="fas fa-qrcode"></i>&nbsp;&nbsp;Dashboard </a></li>
+			<li><a href="/adduser/"><i class="fas fa-link"></i>&nbsp;&nbsp;Add User</a></li>
+			<li><a href="/live/"><i class="fas fa-stream"></i>&nbsp;&nbsp;Live Attendance</a></li>
+
+
+
+		</ul>
+	</div>
+	<div class="q">
+	<section class="second">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-10 offset=md-1">
+					<div class="row">
+						<div class="col-md-5 register-left">
+							<h3>Click Below !</h3>
+							<p>Train Your face with the fresh photo</p>
+							<img id="myImg" src="{%static 'useme.gif'%}" style="width:60px;max-width:300px">
+								<!-- The Modal -->
+								<div id="myModal" class="modal">
+
+								  <!-- The Close Button -->
+								  <span class="close">&times;</span>
+
+								  <!-- Modal Content (The Image) -->
+								  <img  class="modal-content" id="img01">
+
+								  <!-- Modal Caption (Image Text) -->
+								  <div id="caption"></div>
+								</div>
+
+						</div>
+						<div class="col-md-7 register-right">
+							<h2 >Register Here</h2>
+							<div class="register-form">
+							<form action="{%url 'adduser1'%}" method="POST">
+								{% csrf_token %}
+								<div class="form-group">
+									<input type="text" class="form-control" placeholder="Name" name="name">
+								</div>
+
+								<div class="form-group">
+									<input type="text" class="form-control" placeholder="Age" name="age">
+								</div>
+
+								<div class="form-group">
+									<input type="text" class="form-control" placeholder="Department" name="dept">
+								</div>
+
+								<div class="form-group">
+									<input type="text" class="form-control" placeholder="Email" name="email">
+								</div>
+
+								<div class="form-group">
+									<input type="text" class="form-control" placeholder="Position" name="pos">
+								</div>
+
+								<div class="form-group">
+									<input type="text" class="form-control" placeholder="Address" name="address">
+								</div>
+
+								<div class="form-group">
+									<input type="text" class="form-control" placeholder="City" name="city">
+								</div>
+
+								<div class="form-group">
+									<input type="text" class="form-control" placeholder="Salary" name="sal">
+								</div>
+
+								<input type="submit" class="btn btn-primary" placeholder="Add Details">
+							</form>
+							</div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</section>
+</div>
+</body>
+
+<script type="text/javascript">
+	var modal = document.getElementById("myModal");
+
+// Get the image and insert it inside the modal - use its "alt" text as a caption
+var img = document.getElementById("myImg");
+var modalImg = document.getElementById("img01");
+var captionText = document.getElementById("caption");
+img.onclick = function(){
+  modal.style.display = "block";
+  modalImg.src = this.src;
+  captionText.innerHTML = this.alt;
+}
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+</script>
+</html>

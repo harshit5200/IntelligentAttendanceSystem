@@ -1,0 +1,23 @@
+{%load static%}
+<html>
+    <head>
+        <link rel="stylesheet" href="{%static 'style.css'%}">
+        <link rel="stylesheet" href="{%static 'bootstrap.min.css'%}">
+        <link href="https://fonts.googleapis.com/css?family=Baloo+Chettan+2&display=swap" rel="stylesheet">
+    </head>
+    <body style="background: linear-gradient(to right, #00c6ff, #0072ff);">
+        <div class="box" style="text-align: center;"><br>
+            <h1 style="padding: 5px; font-family: 'Baloo Chettan 2', cursive;">Face-Shot</h1>
+            <h2 style="padding: 5px; font-family: 'Baloo Chettan 2', cursive;">Login</h2>
+            <br><br>
+            <form action="/emplogin1/" method="POST">
+                {% csrf_token %}
+            <input name="email" type="email" placeholder="Username" style="border-radius: 7px; border: none; background-color:#F0F0F7;
+            width: 70%; height: 10%;"><br><br>
+            <input name="password" type="password" placeholder="Password" style="border-radius: 7px; border: none; background-color:#F0F0F7;
+            width: 70%; height: 10%;"><br><br><br>
+            <button style="height: 8%; width: 50%;" class="submit">Submit</button>
+        </form>
+        </div>
+    </body>
+</html>

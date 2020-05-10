@@ -1,0 +1,114 @@
+{%load static%}
+<!DOCTYPE html>
+<html>
+<head>
+
+	<link rel="stylesheet" type="text/css" href="{%static 'live.css'%}">
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Bree+Serif&display=swap" rel="stylesheet">
+	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet">
+
+<link href="https://cdn.datatables.net/1.10.18/css/dataTables.bootstrap4.min.css" rel="stylesheet">
+
+<!-- Bootstrap core JavaScript-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Page level plugin JavaScript--><script src="https://cdn.datatables.net/1.10.18/js/jquery.dataTables.min.js"></script>
+
+<script src="https://cdn.datatables.net/1.10.18/js/dataTables.bootstrap4.min.js"></script>
+	<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+
+	<title>
+		Live Attend !
+	</title>
+
+</head>
+
+
+<body>
+<div class="sidebar">
+		<header>FACE-SHOT</header>
+		<ul>
+      <li><a href="/file1/"><i class="fas fa-qrcode"></i>&nbsp;&nbsp;Dashboard </a></li>
+			<li><a href="/adduser/"><i class="fas fa-link"></i>&nbsp;&nbsp;Add User</a></li>
+			<li><a href="/live/"><i class="fas fa-stream"></i>&nbsp;&nbsp;Live Attendance</a></li>
+
+		</ul>
+	</div>
+
+	<div class="q">
+
+		<div class="second">
+		<h2 style="color: white;">Live Attendance</h2>
+
+		<br><br><br>
+		<div class="container">
+        <table class="s table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                  <thead>
+                    <tr>
+                      <th>Id</th>
+                      <th>Name</th>
+                      <th>Email</th>
+											<th>Department</th>
+                      <th>Position</th>
+                      <th>Date</th>
+                      <th>Time</th>
+                    </tr>
+                  </thead>
+                  <tfoot>
+                    <tr>
+                      <th>Id</th>
+                      <th>Name</th>
+                      <th>Email</th>
+											<th>Department</th>
+                      <th>Position</th>
+                      <th>Date</th>
+                      <th>Time</th>
+                    </tr>
+                  </tfoot>
+                  <tbody>
+                    {% for i in data %}
+                    <tr>
+                      <td>{{i.Id}}</td>
+                      <td>{{i.Name}}</td>
+                      <td>{{i.Email}}</td>
+											<td>{{i.Department}}</td>
+                      <td>{{i.Post}}</td>
+                      <td>{{i.Date}}</td>
+                      <td>{{i.Time}}</td>
+                    </tr>
+                    {% endfor %}
+                  </tbody>
+                </table>
+    </div>
+
+		</div>
+
+
+	</div>
+
+
+</body>
+
+<script>
+    $(document).ready(function() {
+          $('#dataTable').DataTable();
+    });
+</script>
+
+<script>
+$(function () {
+    $('#dataTable').DataTable({
+      "pageLength": 3,
+      "paging": true,
+      "lengthChange": false,
+      "searching": false,
+      "ordering": true,
+      "info": true,
+      "autoWidth": false
+      });
+  });
+</script>
+</html>

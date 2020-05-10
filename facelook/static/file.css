@@ -1,0 +1,79 @@
+*{
+	margin:0;
+	padding: 0;
+	list-style: none;
+	text-decoration: none;
+}
+
+
+
+.sidebar{
+	position: fixed;
+	left: 0;
+	width: 250px;
+	height: 100%;
+	background: #002080;
+}
+
+.sidebar header{
+	font-size: 22px;
+	font-family: 'Bree Serif', serif;
+	color: #ffccf2;
+	text-align: center;
+	line-height: 70px;
+	background: #002db3;
+	user-select: none;
+}
+
+.sidebar ul a{
+	display: block;
+	height: 100%;
+	width: 100%;
+	line-height: 65px;
+	font-family: 'Bree Serif', serif;
+	font-size: 20px;
+	color: white;
+	padding-left: 40px;
+	box-sizing: border-box;
+	border-top: 1px solid rgba(255,255,255,.1);
+	border-bottom: 1px solid black;
+	transition: .4s;
+}
+
+ul li:hover a{
+	padding-left: 60px;
+	color: #bf00ff;
+}
+
+.second1{
+	background: url(bg2.jpg) no-repeat;
+	/*background-position: center;*/
+	background-size: cover;
+	height: 100px;
+	/*background-color: blue;*/
+	padding-left: 30px;
+}
+
+.all{
+	padding-left: 30px;
+	color: black;
+}
+
+.second{
+	padding-left: 250px;
+}
+
+.second h2 {
+	
+	color: white;
+	font-family: 'Bree Serif', serif;
+	padding-top: 10px;
+}
+
+.second h3{
+	font-family: 'Bree Serif', serif;
+}
+
+.car{
+	background-color: #002db3;	
+}

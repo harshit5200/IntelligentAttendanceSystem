@@ -1,0 +1,111 @@
+*{
+	margin:0;
+	padding: 0;
+	list-style: none;
+	text-decoration: none;
+}
+
+body{
+	color: white;
+}
+
+.sidebar{
+	position: fixed;
+	left: 0;
+	width: 250px;
+	height: 100%;
+	background: #002080;
+}
+
+.sidebar header{
+	font-size: 22px;
+	font-family: 'Bree Serif', serif;
+	color: #ffccf2;
+	text-align: center;
+	line-height: 70px;
+	background: #002db3;
+	user-select: none;
+}
+
+.sidebar ul a{
+	display: block;
+	height: 100%;
+	width: 100%;
+	line-height: 65px;
+	font-family: 'Bree Serif', serif;
+	font-size: 20px;
+	color: white;
+	padding-left: 40px;
+	box-sizing: border-box;
+	border-top: 1px solid rgba(255,255,255,.1);
+	border-bottom: 1px solid black;
+	transition: .4s;
+}
+
+ul li:hover a{
+	padding-left: 60px;
+	color: #bf00ff;
+}
+
+
+.q{
+	height: 760px;
+	font-family: 'Bree Serif', serif;
+	width: 100%;
+	background-position: center;
+	background-image: url(bg2.jpg);
+}
+
+.second{
+	padding-left: 260px;
+	padding-top: 15px;
+}
+
+.register-left{
+	text-align: center;
+	font-family: 'Bree Serif', serif;
+
+	color:#fff;
+	padding: 30px;
+}
+
+.register-left .btn-warning{
+	border-radius: 1.5rem;
+	border:none;
+	width: 120px;
+	background: dodgerblue;
+}
+
+.register-right{
+	border:none;
+	background:#f8f8f8;
+	font-family: 'Bree Serif', serif;
+
+	border-top-left-radius: 10% 50%;
+	border-bottom-left-radius: 10% 50%;
+	padding: 50px;
+
+}
+
+.register-right h2{
+	 text-align: center;
+	 margin-bottom: 10px;
+	font-family: 'Bree Serif', serif;
+
+	 color: #555;
+}
+
+.register-form{
+	padding: 30px;
+}
+
+
+.register-right .btn-primary{
+	border-radius: 1.5rem;
+	float: right;
+	border:none;
+	font-family: 'Bree Serif', serif;
+
+	width: 120px;
+	background: #ff9800;
+}

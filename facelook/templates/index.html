@@ -1,0 +1,88 @@
+{%load static%}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Face-Shot</title>
+<!-- <link rel="stylesheet" type="text/css" href="file.css"> -->
+	<link rel="stylesheet" type="text/css" href="{%static 'adduser.css' %}">
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Bree+Serif&display=swap" rel="stylesheet">
+	<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+
+<style type="text/css">
+	
+	#myVideo {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+}
+
+/* Add some content at the bottom of the video/page */
+.content {
+  position: fixed;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  color: dodgerblue;
+	font-family: 'Bree Serif', serif;
+
+  width: 100%;
+  padding: 20px;
+}
+
+/* Style the button used to pause/play the video */
+#myBtn {
+  width: 200px;
+  font-size: 18px;
+  padding: 10px;
+  border: none;
+	font-family: 'Bree Serif', serif;
+
+  background: #000;
+  color: dodgerblue;
+  cursor: pointer;
+  border-radius: 1.2rem;
+}
+
+#myBtn:hover {
+  background: white;
+	font-family: 'Bree Serif', serif;
+  
+  color: black;
+}
+</style>
+
+</head>
+
+
+
+
+<body>
+
+	<div class="container-fluid">
+		<video autoplay muted loop id="myVideo">
+  <source src="{%static 'ds.mp4'%}" type="video/mp4">
+</video>
+
+<!-- Optional: some overlay text to describe the video -->
+<div class="content">
+  <h1>Welcome ! To Face-Shot</h1>
+  <p>Intelligent Attendance System.</p>
+  <!-- Use a button to pause/play the video with JavaScript -->
+  <form style="float: left;" action="/admin2/">
+  <button  class="btn btn-primary" id="myBtn" >Admin</button>
+</form>
+
+<form action="/emplogin/">
+  <button class="btn btn-primary" id="myBtn" >Employee</button>
+</form>
+</div>
+	</div>
+
+
+
+</body>
+</html>
