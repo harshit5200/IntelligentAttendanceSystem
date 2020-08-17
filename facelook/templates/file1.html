@@ -13,66 +13,53 @@
 
 
 </head>
-<body style="overflow: hidden;">
-
+<body>
+	
 
 	<div class="sidebar">
 		<header>FACE-SHOT</header>
 		<ul>
 			<li><a href="/file1/"><i class="fas fa-qrcode"></i>&nbsp;&nbsp;Dashboard </a></li>
 			<li><a href="/adduser/"><i class="fas fa-link"></i>&nbsp;&nbsp;Add User</a></li>
-			<li><a href="/live/"><i class="fas fa-stream"></i>&nbsp;&nbsp;Live Attendance</a></li>
+			<li><a href="/live/"><i class="fas fa-stream"></i>&nbsp;&nbsp;Live Attend</a></li>
+			
+
 
 		</ul>
 	</div>
 
-
+	
 		<section class="second">
 			<div>
-                <form action="/admin2/">
 			<button class="second1 btn btn-primary" style="float: right">Logout</button>
-        </form>
+
 			<h2 class="second1">DASHBOARD</h2><br><br>
 			</div>
 
-			<div class="row all">
+
                 <div class="col-md-6 col-xl-3 mb-4">
-                    <div class="card shadow border-left-primary py-0">
+                    <div class="card shadow border-left-success py-0">
                         <div class="card-body">
                             <div class="row align-items-center no-gutters">
                                 <div class="col mr-2">
-                                    <div style="font-family: 'Bree Serif', serif;" class="text-uppercase text-primary font-weight-bold text-xs mb-1"><span>Total Strength</span></div>
-                                    <div style="font-family: 'Bree Serif', serif;" class="text-dark font-weight-bold h5 mb-0"><span>{{total}}</span></div>
+                                    <div class="text-uppercase text-success font-weight-bold text-xs mb-1"><span>Total Strength</span></div>
+                                    <div class="text-dark font-weight-bold h5 mb-0"><span>{{total}}</span></div>
                                 </div>
-                                <div  class="col-auto"><i class="fas fa-calendar fa-2x text-gray-300"></i></div>
+                                <div class="col-auto"><i class="	fas fa-chalkboard-teacher"></i></div>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- <div class="col-md-6 col-xl-3 mb-4">
-                    <div class="card shadow border-left-success py-0">
-                        <div class="card-body">
-                            <div class="row align-items-center no-gutters">
-                                <div class="col mr-2">
-                                    <div style="font-family: 'Bree Serif', serif;" class="text-uppercase text-success font-weight-bold text-xs mb-1"><span>Total Strength</span></div>
-                                    <div style="font-family: 'Bree Serif', serif;" class="text-dark font-weight-bold h5 mb-0"><span>2,150</span></div>
-                                </div>
-                                <div class="col-auto"><i class="fas fa-dollar-sign fa-2x text-gray-300"></i></div>
-                            </div>
-                        </div>
-                    </div>
-                </div> -->
-                <br><br>
-                <div>
-                 <canvas id="myChart"  width="1000" height="200"></canvas>
+
+                 <canvas id="myChart"  width="25px" height="5px"></canvas>
 
            &nbsp;&nbsp;&nbsp; <h3>CATEGORY WISE</h3>
 
-            <canvas id="myChart1" width="250px" height="40px"></canvas>
-        </div>
+            <canvas style="float: right;" id="myChart1" width="250px" height="40px"></canvas>
 
 
+			
 		</section>
 
 
@@ -84,20 +71,20 @@
         var chart = new Chart(ctx, {
             // The type of chart we want to create
             type: 'line',
-
+        
             // The data for our dataset
             data: {
                 labels: ['January', 'February', 'March', 'April', 'May', 'June',],
                 datasets: [{
-                    label: 'My First dataset',
-
+                    label: 'Monthly Attendance Count',
+                    
                     backgroundColor: '#9999ff',
 
                     borderColor: '#000080',
                     data: [{{jan}},{{feb}},{{mar}},{{apr}},{{may}},{{jun}}]
                 }]
             },
-
+        
             // Configuration options go here
             options: {}
         });</script>
@@ -108,7 +95,7 @@
                 data: {
                     labels: ['Computer Science', 'Electronics', 'Mechanical', 'Civil', 'Electrical'],
                     datasets: [{
-                        label: '# of Votes',
+                        label: 'Branch-Wise Attendance Count',
                         data: [{{cse}},{{ex}},{{me}},{{ce}},{{ec}}],
                         backgroundColor: [
                             'rgba(255, 99, 132, 0.2)',

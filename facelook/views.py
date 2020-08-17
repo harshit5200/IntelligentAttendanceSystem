@@ -1,11 +1,13 @@
 from django.shortcuts import render
 from .models import EmployeeModels,live_attendance
 from django.http import HttpResponse
-# import loader
+import loader
 # import weight
 import time
 import cv2
+import os
 from datetime import date
+from collections import defaultdict
 # Create your views here.
 def index(request):
     return render(request,'index.html')
@@ -56,6 +58,7 @@ def emplogin(request):
 
 def emplogin1(request):
     username = request.POST['email']
+    globals()['user'] = username
     password = request.POST['password']
     context = dict()
     a=EmployeeModels.objects.all()
@@ -94,8 +97,10 @@ def file1(request):
     ce=live_attendance.objects.filter(Department="CE",Date=date.today()).count()
     t=cs+me+ec+ex+ce
     mon=live_attendance.objects.values_list('Date')
+    print(mon)
     jan=0;feb=0;mar=0;apr=0;may=0;jun=0
     for i in mon:
+        print(i)
         if i[0][5:7]=='01':
             jan+=1
         elif i[0][5:7]=='02':
@@ -134,8 +139,6 @@ def live(request):
     }
     return render(request,"liveattend.html",context)
 
-def email(request):
-    return render(request,'mail.html')
 
 def adduser1(request):
     name = request.POST['name']
@@ -149,25 +152,34 @@ def adduser1(request):
     e = EmployeeModels(Name=name,Age=age,Department=dept,Mail=email,Post=pos,Address=address,City=city,Salary=salary)
     e.save()
     cam = cv2.VideoCapture(0)
+
     face_detector = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
+
     count = 0
+    directory = name
+    parent_dir = 'D:\\Project\\Minor-II\\minor\\images'
+    path = os.path.join(parent_dir, directory)
+    os.mkdir(path) 
     while(True):
         ret, img = cam.read()
+    #     gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
         faces = face_detector.detectMultiScale(img, 1.3, 5)
         for (x,y,w,h) in faces:
             x1 = x
             y1 = y
             x2 = x+w
             y2 = y+h
-            cv2.rectangle(img, (x1,y1), (x2,y2), (255,255,255), 2)
+            cv2.rectangle(img, (x1,y1), (x2,y2), (255,255,255), 2)     
             count += 1
-            cv2.imwrite("images/"+ name + str(count) + ".jpg", img[y1:y2,x1:x2])
+            # Save the captured image into the datasets folder
+            cv2.imwrite("images/"+name+ "/"+ str(count)+ ".jpg", img[y1:y2,x1:x2])
             cv2.imshow('image', img)
-        k = cv2.waitKey(200) & 0xff
+        k = cv2.waitKey(100) & 0xff
         if k == 27:
             break
-        elif count >= 30:
-             break
+        elif count >= 10:
+            break
     cam.release()
     cv2.destroyAllWindows()
     return render(request,'adduser.html')
+

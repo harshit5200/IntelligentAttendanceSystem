@@ -23,10 +23,8 @@ urlpatterns = [
     path('adduser1/',views.adduser1,name='adduser1'),
     path('emplogin/',views.emplogin,name='login'),
     path('live/',views.live),
-    path('email/',views.email),
     path('emplogin1/',views.emplogin1),
     path('admin/', admin.site.urls),
-
     path('', views.index),
     path('admin2/',views.admin2,name='admin2'),
 

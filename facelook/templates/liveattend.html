@@ -31,62 +31,64 @@
 <div class="sidebar">
 		<header>FACE-SHOT</header>
 		<ul>
-      <li><a href="/file1/"><i class="fas fa-qrcode"></i>&nbsp;&nbsp;Dashboard </a></li>
+			<li><a href="/file1/"><i class="fas fa-qrcode"></i>&nbsp;&nbsp;Dashboard </a></li>
 			<li><a href="/adduser/"><i class="fas fa-link"></i>&nbsp;&nbsp;Add User</a></li>
-			<li><a href="/live/"><i class="fas fa-stream"></i>&nbsp;&nbsp;Live Attendance</a></li>
+			<li><a href="/live/"><i class="fas fa-stream"></i>&nbsp;&nbsp;Live Attend</a></li>
+			
+
 
 		</ul>
 	</div>
 
 	<div class="q">
 
-		<div class="second">
+		<div class="second"> 
 		<h2 style="color: white;">Live Attendance</h2>
 
 		<br><br><br>
 		<div class="container">
-        <table class="s table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                  <thead>
-                    <tr>
-                      <th>Id</th>
-                      <th>Name</th>
-                      <th>Email</th>
-											<th>Department</th>
-                      <th>Position</th>
-                      <th>Date</th>
-                      <th>Time</th>
-                    </tr>
-                  </thead>
-                  <tfoot>
-                    <tr>
-                      <th>Id</th>
-                      <th>Name</th>
-                      <th>Email</th>
-											<th>Department</th>
-                      <th>Position</th>
-                      <th>Date</th>
-                      <th>Time</th>
-                    </tr>
-                  </tfoot>
-                  <tbody>
-                    {% for i in data %}
-                    <tr>
-                      <td>{{i.Id}}</td>
-                      <td>{{i.Name}}</td>
-                      <td>{{i.Email}}</td>
-											<td>{{i.Department}}</td>
-                      <td>{{i.Post}}</td>
-                      <td>{{i.Date}}</td>
-                      <td>{{i.Time}}</td>
-                    </tr>
-                    {% endfor %}
-                  </tbody>
-                </table>
+      <table class="s table table-bordered" id="dataTable" width="100%" cellspacing="0">
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Department</th>
+            <th>Position</th>
+            <th>Date</th>
+            <th>Time</th>
+          </tr>
+        </thead>
+        <tfoot>
+          <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Department</th>
+            <th>Position</th>
+            <th>Date</th>
+            <th>Time</th>
+          </tr>
+        </tfoot>
+        <tbody>
+          {% for i in data %}
+          <tr>
+            <td>{{i.Id}}</td>
+            <td>{{i.Name}}</td>
+            <td>{{i.Email}}</td>
+            <td>{{i.Department}}</td>
+            <td>{{i.Post}}</td>
+            <td>{{i.Date}}</td>
+            <td>{{i.Time}}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
     </div>
-
+					
 		</div>
 
-
+		
 	</div>
 
 
@@ -110,5 +112,5 @@ $(function () {
       "autoWidth": false
       });
   });
-</script>
+</script> 
 </html>

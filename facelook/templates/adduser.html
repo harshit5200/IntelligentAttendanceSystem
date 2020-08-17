@@ -13,7 +13,7 @@
 	<title></title>
 </head>
 
-<body style="overflow: hidden;">
+<body >
 
 	<div class="sidebar">
 		<header>FACE-SHOT</header>
@@ -21,7 +21,7 @@
 			<li><a href="/file1/"><i class="fas fa-qrcode"></i>&nbsp;&nbsp;Dashboard </a></li>
 			<li><a href="/adduser/"><i class="fas fa-link"></i>&nbsp;&nbsp;Add User</a></li>
 			<li><a href="/live/"><i class="fas fa-stream"></i>&nbsp;&nbsp;Live Attendance</a></li>
-
+			
 
 
 		</ul>
@@ -53,8 +53,8 @@
 						<div class="col-md-7 register-right">
 							<h2 >Register Here</h2>
 							<div class="register-form">
-							<form action="{%url 'adduser1'%}" method="POST">
-								{% csrf_token %}
+								<form action="/adduser1/" method="POST">
+									{% csrf_token %}
 								<div class="form-group">
 									<input type="text" class="form-control" placeholder="Name" name="name">
 								</div>
@@ -82,21 +82,19 @@
 								<div class="form-group">
 									<input type="text" class="form-control" placeholder="City" name="city">
 								</div>
-
 								<div class="form-group">
 									<input type="text" class="form-control" placeholder="Salary" name="sal">
 								</div>
-
-								<input type="submit" class="btn btn-primary" placeholder="Add Details">
+								<input type="submit" class="btn btn-primary">
 							</form>
 							</div>
-
+							
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-
+		
 	</section>
 </div>
 </body>

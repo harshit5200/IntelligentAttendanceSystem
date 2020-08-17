@@ -23,6 +23,7 @@ import glob
 import re
 import time
 from loader import *
+from collections import defaultdict
 
 # In[ ]:
 
@@ -43,16 +44,18 @@ def image_to_embedding(image, model):
 def recognize_face(face_image, input_embeddings, model):
 
     embedding = image_to_embedding(face_image, model)
-
+    
     minimum_distance = 200
     name = None
+    
+    # Loop over  names and encodings.
     for (input_name, input_embedding) in input_embeddings.items():
-
-
-        euclidean_distance = np.linalg.norm(embedding-input_embedding)
-        if euclidean_distance < minimum_distance:
-            minimum_distance = euclidean_distance
-            name = input_name
+        for vector in input_embedding:
+            euclidean_distance = np.linalg.norm(embedding-vector)
+            if euclidean_distance < minimum_distance:
+                minimum_distance = euclidean_distance
+                name = input_name
+    
     if minimum_distance < 0.50:
         return str(name)
     else:
@@ -63,13 +66,14 @@ def recognize_face(face_image, input_embeddings, model):
 
 
 def create_input_image_embeddings():
-    input_embeddings = {}
+    input_embeddings = defaultdict(list)
 
-    for file in glob.glob("images/*"):
-        person_name = os.path.splitext(os.path.basename(file))[0]
-        image_file = cv2.imread(file, 1)
-        input_embeddings[person_name] = image_to_embedding(image_file, model)
-
+    for dataset in glob.glob("images/*"):
+        for file in glob.glob(dataset+"/*"):
+            person_name = dataset[7:]
+            person_name = ''.join(re.findall(r'[a-zA-Z]*',person_name))
+            image_file = cv2.imread(file, 1)
+            input_embeddings[person_name].append(image_to_embedding(image_file, model))      
     return input_embeddings
 
 def recognize_faces_in_cam(input_embeddings):

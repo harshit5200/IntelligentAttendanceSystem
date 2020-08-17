@@ -12,17 +12,10 @@
 hr{
     background-color: white;
 }
-.btn{
-    font-family: 'Baloo Chettan 2', cursive;
-    color: white;
-}
+
 .fa{
     color: #8e9eab;
     margin-right: 20px;
-}
-.btn:hover{
-    background-color: white;
-    color: black;
 }
 .head{
     font-family: 'Baloo Chettan 2', cursive;
